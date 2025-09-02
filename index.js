@@ -28,7 +28,7 @@ function generateID(object) {
 
 app.use(cors());
 app.use(express.json());
-// app.use(express.static('dist'));
+app.use(express.static('dist'));
 
 app.get('/', (req, res)=> {
     res.send('<h1>Hello world</h1>')
