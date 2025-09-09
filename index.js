@@ -1,40 +1,21 @@
+require('dotenv').config()
 const express = require('express');
 const cors = require('cors');
+const Note = require('./models/note.js');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-
-let notes = [
-  {
-    id: 1,
-    content: "HTML is easy",
-    important: true
-  },
-  {
-    id: 2,
-    content: "Browser can execute only JavaScript",
-    important: false
-  },
-  {
-    id: 3,
-    content: "GET and POST are the most important methods of HTTP protocol",
-    important: true
-  }
-]
-
-function generateID(object) {
-  return object.length > 0 ? object[object.length - 1].id + 1 : 0
-}
+const PORT = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static('dist'));
 
 app.get('/', (req, res)=> {
-    res.send('<h1>Hello world</h1>')
+    res.send('<h1>Para accceder a la API escribe /api/notes en la url</h1>')
 })
 
-app.get('/api/notes', (req, res)=> {
+app.get('/api/notes', async (req, res)=> {
+  const notes = await Note.find({})
   res.json(notes);
 })
 
