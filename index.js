@@ -36,7 +36,7 @@ app.get('/api/notes/:id', async (req, res, next) => {
 app.delete('/api/notes/:id', async (req, res, next) => {
   const id = req.params.id;
   try {
-    const deleteNote = await Note.findByIdAndDelete(id);
+    await Note.findByIdAndDelete(id);
     res.status(200).json({ message: 'Recurso eliminado correctamente' });
   } catch (err) {
     next(err);
@@ -99,3 +99,4 @@ app.use(errorhandler);
 app.listen(PORT, () => {
   console.log(`Ejecutando servidor desde http://localhost:${PORT}`)
 })
+
