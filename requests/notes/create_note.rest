@@ -1,0 +1,8 @@
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QgNCIsImlkIjoiNjhlZTc3NTk1ZDJkMjFjNmExOTE5ZDM2IiwiaWF0IjoxNzYwNTgxNzY4fQ.3dCi9F31sFyWpnGaJ7_TZiJMIsDK6IX-4My0__0kwZM
+
+{
+    "content": "Nota three from username root 4",
+    "important": true
+}

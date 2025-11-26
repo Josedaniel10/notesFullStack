@@ -6,6 +6,8 @@
     "start": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test node --test",
+    "testNotes": "cross-env NODE_ENV=test node --test ./tests/note_api.test.js",
+    "testUsers": "cross-env NODE_ENV=test node --test ./tests/user_api.test.js",
     "build:ui": "cd ../frontend && npm run build && xcopy /E /I .\\dist ..\\backend\\dist",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "lint": "eslint ."
@@ -15,9 +17,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.18.0"
   },
   "devDependencies": {
